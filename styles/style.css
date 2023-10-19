@@ -1,0 +1,196 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Establece el mínimo alto del cuerpo al 100% de la altura de la ventana */
+    background: url('../images/fondo-tienda.jpeg') no-repeat center center;
+    background-size: cover;
+}
+
+
+#navbar {
+    background-color: black;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 10px 10px;
+}
+
+#botonNav {
+    background-color: black;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding-right: 30px;
+}
+
+#navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    margin-left: 60%;
+    margin-top: 3px;
+}
+
+#navbar li {
+    margin: 0;
+    padding: 10px;
+}
+
+#navbar a {
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+}
+
+#navbar a:hover {
+    color: gray;
+}
+
+#search input {
+    padding: 5px;
+    border-radius: 10px;
+    margin-top: 3%;
+    margin-left: 5%;
+}
+
+#navbar img {
+    max-height: 25px;
+    margin-top: -5px;
+}
+
+
+#nombre-empresa {
+    color: white;
+    font-weight: bold;
+    padding-left: 10px;
+}
+
+/* Estilos section */
+section {
+    flex: 1; /* Hace que este contenedor crezca y ocupe todo el espacio disponible */
+    display: flex;
+    flex-direction: column;
+}
+
+.imagen-div {
+    width: 100%;
+    height: 400px;
+    background: url('../images/ropa-percha.jpeg')no-repeat center center;
+    background-size: cover;
+    
+}
+.ofertas {
+    font-size: 300px;
+    font-weight: bold;
+    backdrop-filter: blur(10px); /* Aplicar un desenfoque de 10px */
+}
+
+.imagen-div1 img{
+    width: 200px;
+    height: 400px; 
+}
+.imagen-div1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.imagen-div1 a {
+ padding: .5rem;  
+}
+.imagen-container {
+    position: relative;
+    width: 200px;
+    height: 400px;
+    margin: 0.5rem;
+}
+
+.imagen-container img {
+    width: 100%;
+    height: 100%;
+}
+
+.overlay-hombre,.overlay-mujer,.overlay-niño {
+    position: absolute;
+    left: 4%;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
+    color: white;
+    width: 80%;
+    transition: .5s ease;
+    opacity: 0;
+    font-size: 20px;
+    padding: 20px;
+    text-align: center;
+}
+
+.imagen-container:hover .overlay-hombre,.imagen-container:hover .overlay-mujer,.imagen-container:hover .overlay-niño {
+    opacity: 1;
+}
+
+
+
+/* Estilos para el footer */
+footer {
+    background-color: black;
+    color: white;
+    padding: 10px;
+    text-align: center;
+}
+
+
+footer a {
+    color: white; 
+    text-decoration: none;
+    margin: 0 10px; 
+}
+
+footer a:hover {
+    color: gray;
+}
+/********************/
+.enlaces-footer {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+    width: 45%;
+    float: left;
+}
+.cuenta-footer{
+    list-style: none;
+    padding: 0px;
+    text-align: right;
+    margin-right: 1%;
+    width: 45%;
+    float: right;
+
+}
+
+.enlaces-footer, .cuenta-footer li {
+    margin: 6px 0; /* Añade un espacio entre los elementos de la lista */
+}
+
+.enlaces-footer, .cuenta-footer a {
+    text-decoration: none; 
+    color: #fff; 
+}
+
+.enlaces-footer, .cuenta-footer a:hover {
+    color: #ccc; 
+}
+.redes-sociales{
+    clear: both; /* Hace que el elemento no pueda estar al lado de ningún elemento flotante */
+    text-align: center; 
+    float: right;
+    margin-right: 1%;
+    padding: 0px 10px;
+}
+.redes-sociales img{
+    max-height: 25px;
+}
