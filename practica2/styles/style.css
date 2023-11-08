@@ -1,13 +1,54 @@
+html{
+    background: url('../images/fondo-tienda.jpeg') no-repeat center center;
+    background-size: cover;
+}
 body {
     margin: 0;
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* Establece el mínimo alto del cuerpo al 100% de la altura de la ventana */
-    background: url('../images/fondo-tienda.jpeg') no-repeat center center;
-    background-size: cover;
 }
 
+/* Cuando la pantalla es mas pequeña */
+@media screen and (max-width: 768px) {
+    #navbar ul {
+        flex-direction: column; /* Cambia a una columna en pantallas más pequeñas */
+        align-items: center; /* Centra los elementos en la columna */
+    }
+
+    #navbar li {
+        padding: 5px; /* Ajusta el relleno en pantallas más pequeñas */
+    }
+
+    .ofertas {
+        font-size: 200px;
+    }
+    .overlay-hombre,.overlay-mujer,.overlay-niño {
+        position: absolute;
+        left: 2.7499%;
+        bottom: 0;
+        background: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
+        color: white;
+        width: 100%;
+        transition: .5s ease;
+        opacity: 0;
+        font-size: 20px;
+        padding: 20px;
+        text-align: center;
+        justify-content: center;
+    }
+    .imagen-div1 {
+        flex-direction: column; /* pone las imagenes verticalmente */
+    }
+
+    .imagen-container {
+        width: 100%;
+        height: auto; 
+    }
+
+  
+}
 
 #navbar {
     background-color: black;
@@ -20,13 +61,21 @@ body {
     z-index: 1000;
     padding: 10px 10px;
 }
+#search input,#navbar a {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
 
+#search input.show,#navbar a.show {
+    opacity: 1;
+    display: initial;
+}
 #botonNav {
     background-color: black;
     border: none;
     color: white;
     cursor: pointer;
-    padding-right: 30px;
+    padding-right: 1vw;
 }
 
 #navbar ul {
@@ -34,7 +83,7 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
-    margin-left: 60%;
+    margin-left: 51vw;
     margin-top: 3px;
 }
 
@@ -47,6 +96,7 @@ body {
     text-decoration: none;
     color: white;
     font-size: 20px;
+    display: none;
 }
 
 #navbar a:hover {
@@ -58,6 +108,7 @@ body {
     border-radius: 10px;
     margin-top: 3%;
     margin-left: 5%;
+    display: none;
 }
 
 #navbar img {
@@ -87,15 +138,12 @@ section {
     
 }
 .ofertas {
-    font-size: 300px;
+    font-size: 15vw;
     font-weight: bold;
     backdrop-filter: blur(10px); /* Aplicar un desenfoque de 10px */
+    text-align: center;
 }
 
-.imagen-div1 img{
-    width: 200px;
-    height: 400px; 
-}
 .imagen-div1{
     display: flex;
     justify-content: center;
@@ -106,8 +154,8 @@ section {
 }
 .imagen-container {
     position: relative;
-    width: 200px;
-    height: 400px;
+    width: 300px;
+    height: 500px;
     margin: 0.5rem;
 }
 
@@ -118,11 +166,11 @@ section {
 
 .overlay-hombre,.overlay-mujer,.overlay-niño {
     position: absolute;
-    left: 4%;
+    left: 2.7499%;
     bottom: 0;
     background: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
     color: white;
-    width: 80%;
+    width: 86.6%;
     transition: .5s ease;
     opacity: 0;
     font-size: 20px;
