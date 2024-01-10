@@ -8,6 +8,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh; /* Establece el mínimo alto del cuerpo al 100% de la altura de la ventana */
+    overflow-x: hidden;
 }
 
 /* Cuando la pantalla es mas pequeña */
@@ -22,32 +23,31 @@ body {
     }
 
     .ofertas {
-        font-size: 200px;
+        font-size: 100px;
     }
-    .overlay-hombre,.overlay-mujer,.overlay-niño {
-        position: absolute;
-        left: 2.7499%;
-        bottom: 0;
-        background: rgba(0, 0, 0, 0.5); /* Fondo negro semi-transparente */
-        color: white;
+    .imagen-div1{
+        flex-direction: column;
+    }
+    .imagen-container{
         width: 100%;
-        transition: .5s ease;
-        opacity: 0;
-        font-size: 20px;
+        margin: 0.5rem 0;
+    }
+    footer{
         padding: 20px;
         text-align: center;
-        justify-content: center;
     }
-    .imagen-div1 {
-        flex-direction: column; /* pone las imagenes verticalmente */
-    }
-
-    .imagen-container {
-        width: 100%;
-        height: auto; 
-    }
+ 
 
   
+}
+/* Media query para dispositivos medianos */
+@media screen and (min-width: 769px) and (max-width: 1024px) {
+   
+}
+
+/* Media query para dispositivos grandes  */
+@media screen and (min-width: 1025px) {
+   
 }
 
 #navbar {
