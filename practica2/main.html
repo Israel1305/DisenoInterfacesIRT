@@ -10,7 +10,10 @@
 
 </head>
 <body>
-   
+    <video autoplay muted loop id="background-video">
+        <source src="video/walking_bg.mp4" type="video/mp4">
+        Tu navegador no soporta el elemento de video.
+      </video> 
    
 
     <div id="navbar"> 
@@ -18,13 +21,23 @@
             <img src="images/toggle-icon.png" alt="Icono de menú">
         </button>
           
-        <a href="#" class="boton-compartir"><img src="images/avion.png" alt="compartir"></a>
+        <a href="#" class="boton-compartir">
+            <img src="images/avion.png" alt="compartir">
+        </a>
         <span id="nombre-empresa">CABELLO'S WEAR</span>
         <ul>
-            <li><a href="#">Hombre</a></li>
-            <li><a href="#">Mujer</a></li>
-            <li><a href="#">Niño</a></li>
-            <li><a href="#"><img src="images/carrito.png" alt="Tienda"></a></li>
+            <li>
+                <a href="#">Hombre</a>
+            </li>
+            <li>
+                <a href="#">Mujer</a>
+            </li>
+            <li>
+                <a href="#">Niño</a>
+            </li>
+            <li><a href="#">
+                <img class="boton-tienda" src="images/carrito.png" alt="Tienda"></a>
+            </li>
             <div id="search">
                 <input type="text" placeholder="Buscar">
             </div>
@@ -42,7 +55,8 @@
             </iframe>
             <!--   fin video    -->
             <!-- audio -->
-            <audio id="audio" controls loop >
+            <button class="botonAudio" onclick="botonAudio()"></button>
+            <audio id="audio" controls loop muted>
                 <source src="./audio/Musica.ogg" type="audio/ogg">
                 <source src="./audio/Musica(mp3).mp3" type="audio/mp3">
                 Tu navegador no soporta la etiqueta de audio.
@@ -52,15 +66,33 @@
         <div class="ofertas">%OFERTAS%</div>
         <div class="imagen-div1">
             <div class="imagen-container">
-                <a href="#"><img src="images/ropa-casual-hombre.jpeg" alt="Hombre"></a>
+                <a href="#">
+                    <img src="images/ropa-casual-hombre.jpeg" alt="Hombre">
+                    <video  loop muted autoplay>
+                      <source src="video/hombre_custom.ogv" type="video/ogv">
+                      <source src="video/hombre_custom.mp4" type="video/mp4">
+                    </video>
+                </a>
                 <div class="overlay-hombre">Ropa Hombres</div>
             </div>
             <div class="imagen-container">
-                <a href="#"><img src="images/ropa-mujer.jpeg" alt="Mujer"></a>
+                <a href="#">
+                    <img src="images/ropa-mujer.jpeg" alt="Mujer">
+                    <video  loop muted autoplay>
+                        <source src="video/mujer_custom.ogv" type="video/ogv">
+                        <source src="video/mujer_custom.mp4" type="video/mp4">
+                    </video>
+                </a>
                 <div class="overlay-mujer">Ropa Mujeres</div>
             </div>
             <div class="imagen-container">
-                <a href="#"><img src="images/ropa-casual-niño.jpeg" alt="Niño"></a>
+                <a href="#">
+                    <img src="images/ropa-casual-niño.jpeg" alt="Niño">
+                    <video  loop muted autoplay>
+                        <source src="video/kids_custom.ogv" type="video/ogv">
+                        <source src="video/kids_custom.mp4" type="video/mp4">
+                    </video>
+                </a>
                 <div class="overlay-niño">Ropa Niños</div>
             </div>
         </div>

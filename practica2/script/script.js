@@ -37,3 +37,28 @@ function toggleNavbar() {
     var audio = document.getElementById("audio");
     audio.pause();
 }
+// JavaScript para agregar/quitar la clase según el tamaño de la pantalla
+window.addEventListener('resize', function() {
+  var ofertasElement = document.querySelector('.ofertas');
+
+  if (window.innerWidth <= 768) {
+      // Si el ancho de la pantalla es menor o igual a 768px, quitar la clase de animación
+      ofertasElement.classList.remove('glitch-animation');
+  } else {
+      // Si el ancho de la pantalla es mayor a 768px, agregar la clase de animación
+      ofertasElement.classList.add('glitch-animation');
+  }
+});
+
+// Disparar el evento resize al cargar la página para inicializar el estado
+window.dispatchEvent(new Event('resize'));
+
+/**** Audio */
+function botonAudio(){
+  var audio = document.getElementById("audio");
+  // Cambia la propiedad 'muted' para activar/desactivar el audio
+  audio.muted = !audio.muted;
+   // Cambia la visibilidad de la etiqueta audio
+   audio.style.display = audio.style.display === "none" ? "block" : "none";
+
+}
