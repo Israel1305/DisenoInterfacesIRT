@@ -79,12 +79,18 @@ body {
         width: 100%;
         margin: 0.5rem 0;
     }
+   
     footer{
         padding: 20px;
         text-align: center;
     }
    
-   
+    .imagen-container {
+        position: relative;
+        width: 300px;
+        height: 500px;
+        margin: 0.5rem;
+    }
  
 
   
@@ -346,19 +352,34 @@ section {
     z-index: 1001;
     display: none;
 }
-button.botonAudio{
+button.botonAudio {
     position: fixed;
     bottom: 96%;
     left: 2%;
     cursor: pointer;
     border: none;
     border-radius: 5px;
-    background: url("../images/music.png")no-repeat center center;
+    background: url("../images/music.png") no-repeat center center;
     background-size: contain;
     width: 20px;
     height: 20px;
     z-index: 1001;
+    animation-duration: 2s;
+    animation-iteration-count: 2;
+    animation-name: MiAnimacion;
+    animation-direction: alternate;
 }
+
+@keyframes MiAnimacion {
+    0% {
+        left: 2%;
+    }
+
+    100% {
+        left: 8%; 
+    }
+}
+
 
 /******************************************/
 .imagen-div1{
