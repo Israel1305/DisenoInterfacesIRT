@@ -94,8 +94,8 @@ body {
     /* Logo Linkedin */
     .redes-sociales img:nth-child(1){
         position: absolute;
-        top: 319.9%;
-        left: 83.5%;
+        bottom: 1;
+        left: 110;
     }
  
 
@@ -226,8 +226,8 @@ body {
     /* Logo Linkedin */
     .redes-sociales img:nth-child(1){
         position: absolute;
-        top: 99.2%;
-        left: 85%;
+        bottom: 1;
+        left: 110;
     }
    
 }
@@ -496,6 +496,7 @@ footer a:hover {
     color: #ccc; 
 }
 .redes-sociales{
+    position: relative;
     clear: both; /* Hace que el elemento no pueda estar al lado de ningún elemento flotante */
     text-align: center; 
     float: right;
@@ -508,6 +509,6 @@ footer a:hover {
 /* Posicionar mejor el logo de Linkedin estaba muy pegado */
 .redes-sociales img:nth-child(1){
     position: absolute;
-    bottom: -90.5%;
-    right: 7%;
+    bottom: 1;
+    right: 103%;
 }
