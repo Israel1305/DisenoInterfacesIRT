@@ -223,6 +223,12 @@ body {
         transform: translate(-22px,5px) skew(21deg); 
         }
     }
+    /* Logo Linkedin */
+    .redes-sociales img:nth-child(1){
+        position: absolute;
+        top: 99.2%;
+        left: 85%;
+    }
    
 }
 /************ FIN MEDIAQUERY MEDIANO ****************/
