@@ -100,7 +100,9 @@ body {
         opacity: 0;
     }
 }
-
+#pagina2{
+    display: none;
+}
 /** Modo oscuro **/
 .dark-mode {
     background-color: var(--background-color-dark);
