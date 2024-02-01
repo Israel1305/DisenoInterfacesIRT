@@ -118,4 +118,10 @@ body {
     margin-right: 10px;
     margin-top: 10px;
 }
+.dark-mode .start-button{
+    color: white;
+}
+.dark-mode .text_cursor{
+    border-left: 3px solid white;
+}
 /*****************/
