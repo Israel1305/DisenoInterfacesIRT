@@ -8,10 +8,10 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-
+    <button id="darkModeToggle">🌚</button>
     <!-- Página 1 -->
     <div id="pagina1" class="pagina">
-        <button id="darkModeToggle">🌚</button>
+        
         <div class="race-container">
             <div class="race-track" id="raceTrack">
                 <div class="vall-progress" id="vallProgress"></div>
@@ -23,9 +23,13 @@
         </div>
     </div>
     <!-- Página 2 -->
+    
     <div id="pagina2" class="pagina">
-        <!-- Contenido de la página 2 -->
-        <a href="#" onclick="transicion('pagina1')">Volver a la página 1</a>
+        <div class="menu-container">    
+            <div class="option">INICIAR</div>
+            <div class="option">COMO SE JUEGA</div>
+            <div class="option" onclick="transicion('pagina1')">VOLVER</div>
+        </div>
     </div>
 
 

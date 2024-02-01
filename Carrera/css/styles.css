@@ -74,7 +74,7 @@ body {
     top: 18px;
     height: 40px;
     background-color: transparent;
-    border-left: 3px solid black;
+    border-left: 3px solid #2196F3;
 }
 
 @keyframes pulse {
@@ -103,6 +103,21 @@ body {
 #pagina2{
     display: none;
 }
+.menu-container, .option{
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    backdrop-filter: blur(10px);
+   
+    
+}
+.option{
+    color: black;
+    text-align: center;
+    cursor: pointer;
+}
 /** Modo oscuro **/
 .dark-mode {
     background-color: var(--background-color-dark);
@@ -125,5 +140,8 @@ body {
 }
 .dark-mode .text_cursor{
     border-left: 3px solid white;
+}
+.dark-mode .option{
+    color: white;
 }
 /*****************/
