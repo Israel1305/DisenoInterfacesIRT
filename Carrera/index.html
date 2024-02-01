@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrera</title>
+    <link rel="shortcut icon" href="./media/animated-man-running.gif" type="image/x-icon">
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body>
+
+    <!-- Página 1 -->
+    <div id="pagina1" class="pagina">
+        <button id="darkModeToggle">🌚</button>
+        <div class="race-container">
+            <div class="race-track" id="raceTrack">
+                <div class="vall-progress" id="vallProgress"></div>
+                <div class="runner" id="runner"></div>
+            </div>
+            <div class="start-button" id="startButton" onclick="transicion('pagina2')">START
+                <div class="text_cursor"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Página 2 -->
+    <div id="pagina2" class="pagina">
+        <!-- Contenido de la página 2 -->
+        <a href="#" onclick="transicion('pagina1')">Volver a la página 1</a>
+    </div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="./js/script.js"></script>
+
+</body>
+</html>

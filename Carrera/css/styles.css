@@ -1,0 +1,121 @@
+/* styles.css */
+:root {
+    color-scheme: light dark;
+    --background-color-light: #fff;  /* Define el color de fondo en el modo claro */
+    --background-color-dark: #333;  /* Define el color de fondo en el modo oscuro */
+    --text-color-light: #000;       /* Define el color del texto en el modo claro */
+    --text-color-dark: #fff;        /* Define el color del texto en el modo oscuro */
+}
+body {
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: var(--background-color-light);
+    color: var(--text-color-light);
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.race-container {
+    position: relative;
+}
+
+.race-track {
+    width: 300px;
+    height: 40px;
+    background-color: #ddd;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    position: relative;
+    opacity: 1;
+}
+
+.runner {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 20px;
+    height: 35px;
+    background: url('../media/animated-man-running.gif') no-repeat center center;
+    background-size: cover;
+    animation: run 2s linear forwards;
+}
+
+.vall-progress {
+    position: absolute;
+    top: -190%;
+    height: 190px;
+    background: url('../media/8TQx-rotate.gif') no-repeat center center;
+    background-color: #99ebfd;
+    background-size: cover;
+    width: 1000px;
+ 
+}
+
+.start-button {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #2196F3;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 50px;
+    cursor: pointer;
+    display: none;
+    animation: pulse 1s infinite;
+}
+
+.text_cursor {
+    position: absolute;
+    top: 18px;
+    height: 40px;
+    background-color: transparent;
+    border-left: 3px solid black;
+}
+
+@keyframes pulse {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.5;
+    }
+}
+
+@keyframes run {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+/** Modo oscuro **/
+.dark-mode {
+    background-color: var(--background-color-dark);
+    color: var(--text-color-dark);
+}
+#darkModeToggle{
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: transparent;
+    border: none;
+}
+#darkModeToggle img{
+    height: 30px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+/*****************/
