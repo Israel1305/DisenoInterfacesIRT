@@ -57,7 +57,7 @@ body {
 
 .start-button {
     position: absolute;
-    top: 0;
+    top: -30px;
     left: 50%;
     transform: translateX(-50%);
     color: #2196F3;
@@ -100,7 +100,7 @@ body {
         opacity: 0;
     }
 }
-#pagina2, #pagina3{
+#pagina2, #pagina3, #pagina4{
     display: none;
 }
 .menu-container, .option{
@@ -129,6 +129,10 @@ body {
     right: 0;
     background: transparent;
     border: none;
+    color: black;
+}
+.dark-mode #darkModeToggle{
+    color: white;
 }
 #darkModeToggle img{
     height: 30px;
@@ -144,6 +148,7 @@ body {
 .dark-mode .option{
     color: white;
 }
+
 /*****************/
 /*** SLIDER ******/
 .slider {
@@ -169,6 +174,12 @@ body {
 }
 .option img{
     height: 100px;
+}
+#pagina3 .menu-container{
+    background-color: aquamarine;
+}
+#pagina3 .option{
+    background-color: white;
 }
 
 /*****************/

@@ -8,10 +8,9 @@
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body>
-    <button id="darkModeToggle">🌚</button>
-    <!-- Página 1 -->
+    <button id="darkModeToggle">Turn Off 🌚</button>
+    <!-- Página Inicio (1) -->
     <div id="pagina1" class="pagina">
-        
         <div class="race-container">
             <div class="race-track" id="raceTrack">
                 <div class="vall-progress" id="vallProgress"></div>
@@ -22,13 +21,13 @@
             </div>
         </div>
     </div>
-    <!-- Página 2 -->
+    <!-- Página  Menu (2) -->
     
     <div id="pagina2" class="pagina">
         <div class="menu-container">    
             <div class="option">INICIAR</div>
             <div class="option" onclick="transicion('pagina3')">PERSONAJES</div>
-            <div class="option">COMO SE JUEGA</div>
+            <div class="option" onclick="transicion('pagina4')">COMO SE JUEGA</div>
             <div class="option" onclick="transicion('pagina1')">VOLVER</div>
         </div>
     </div>
@@ -38,22 +37,39 @@
     <div id="pagina3" class="pagina">
         <div class="menu-container">   
             <div class="slider">
-                <div class="option" id="p1"><img src="./media/characters/animated-man-running.gif" alt="p1">
+                <div class="option" id="p1">
+                    <img src="./media/characters/animated-man-running.gif" alt="p1">
                     <div class="p-name">Runner-Man</div>
                 </div>
-                <div class="option" id="p2"><img src="./media/characters/kid-mario.gif" alt="p2">
+                <div class="option" id="p2">
+                    <img src="./media/characters/kid-mario.gif" alt="p2">
                     <div class="p-name">Kid Mario</div>
                 </div>
-                <div class="option" id="p3"><img src="./media/characters/pikachu.gif" alt="p3">
+                <div class="option" id="p3">
+                    <img src="./media/characters/pikachu.gif" alt="p3">
                     <div class="p-name">Pikachu</div>
                 </div>
-                <div class="option" id="p4"><img src="./media/characters/sonic-run.gif" alt="p4">
+                <div class="option" id="p4">
+                    <img src="./media/characters/sonic-run.gif" alt="p4">
                     <div class="p-name">Sonic</div>
                 </div>
             </div>
                 <div class="prev-btn" onclick="changeSlide(-1)">❮</div>
                 <div class="next-btn" onclick="changeSlide(1)">❯</div>
                 <div class="option" onclick="transicion('pagina2')">VOLVER</div>
+        </div>
+    </div>
+
+    <!-- Página 'Como se juega' (4) -->
+    
+    <div id="pagina4" class="pagina">
+        <div class="menu-container">   
+            <span><h2>Cómo se juega</h2>
+            Es una recreacion del famoso juego 'Chrome Dino Run', únicamente algo personalizado.
+
+            <p>∞ Barra espaciadora: salta.</p>
+            </span>
+            <div class="option" onclick="transicion('pagina2')">VOLVER</div>
         </div>
     </div>
 

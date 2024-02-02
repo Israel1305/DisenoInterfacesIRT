@@ -59,9 +59,9 @@ function toggleDarkMode() {
     // Si el modo oscuro está activado, cambia el texto del botón
     const darkModeToggle = document.getElementById('darkModeToggle');
     if (body.classList.contains('dark-mode')) {
-        darkModeToggle.textContent = '🌞';
+        darkModeToggle.textContent = 'Turn On 🌞';
     } else {
-        darkModeToggle.textContent = '🌚';
+        darkModeToggle.textContent = 'Turn Off 🌚';
     }
 }
 
