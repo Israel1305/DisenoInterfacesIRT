@@ -1,4 +1,5 @@
 // script.js
+
 function simulateRace() {
     var raceTrack = document.getElementById("raceTrack");
     var vallProgress = document.getElementById("vallProgress");
@@ -74,6 +75,41 @@ function transicion(pagina) {
     $('.pagina').hide(); // Oculta todas las páginas
     $('#' + pagina).fadeIn(); // Muestra la página especificada
 }
-
-
 /********************* */
+
+/*********** SLIDER **** */
+let currentSlide = 0;
+
+function changeSlide(n) {
+    showSlide(currentSlide += n);
+}
+
+function showSlide(n) {
+    const slides = document.querySelectorAll('.slider .option');
+    const pNames = document.querySelectorAll('.slider .p-name');
+
+    if (n >= slides.length) {
+        currentSlide = 0;
+    } else if (n < 0) {
+        currentSlide = slides.length - 1;
+    } else {
+        currentSlide = n;
+    }
+
+    slides.forEach((slide, index) => {
+        slide.style.display = 'none';
+
+        // Oculta los nombres de todos los personajes
+        pNames[index].style.display = 'none';
+    });
+
+    slides[currentSlide].style.display = 'block';
+
+    // Muestra el nombre del personaje actual
+    pNames[currentSlide].style.display = 'block';
+}
+
+// Inicializar el slider
+showSlide(currentSlide);
+
+/******************** */

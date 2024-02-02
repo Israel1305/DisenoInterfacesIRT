@@ -63,7 +63,7 @@ body {
     color: #2196F3;
     padding: 10px 20px;
     border-radius: 5px;
-    font-size: 50px;
+    font-size: 70px;
     cursor: pointer;
     display: none;
     animation: pulse 1s infinite;
@@ -72,7 +72,7 @@ body {
 .text_cursor {
     position: absolute;
     top: 18px;
-    height: 40px;
+    height: 60px;
     background-color: transparent;
     border-left: 3px solid #2196F3;
 }
@@ -100,17 +100,17 @@ body {
         opacity: 0;
     }
 }
-#pagina2{
+#pagina2, #pagina3{
     display: none;
 }
 .menu-container, .option{
-    max-width: 600px;
+    max-width: 500px;
     margin: 20px auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
     backdrop-filter: blur(10px);
-   
+    box-sizing: border-box;
     
 }
 .option{
@@ -144,4 +144,31 @@ body {
 .dark-mode .option{
     color: white;
 }
+/*****************/
+/*** SLIDER ******/
+.slider {
+    display: flex;
+    overflow: hidden;
+    transition: transform 0.5s ease-in-out; 
+}
+
+.option {
+    flex: 0 0 100%;
+    width: 300px;
+}
+
+.prev-btn,.next-btn {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 24px;
+    margin: 0 10px;
+    color: rgb(181, 16, 16);
+}
+.prev-btn{
+    margin-right: 250px;
+}
+.option img{
+    height: 100px;
+}
+
 /*****************/
