@@ -121,7 +121,7 @@ body {
 /** Modo oscuro **/
 .dark-mode {
     background-color: var(--background-color-dark);
-    color: var(--text-color-dark);
+    color: var(--text-color-light);
 }
 #darkModeToggle{
     position: absolute;
@@ -145,8 +145,17 @@ body {
 .dark-mode .text_cursor{
     border-left: 3px solid white;
 }
+/* estilo contenedor personajes */
+.dark-mode #pagina3 .menu-container{
+    background: linear-gradient(rgb(0, 208, 255), rgb(45, 26, 29));
+    backdrop-filter: blur(10px);
+}
 .dark-mode .option{
     color: white;
+
+}
+.dark-mode #pagina3 .option{
+    background-color: var(--background-color-dark);
 }
 
 /*****************/
@@ -176,7 +185,8 @@ body {
     height: 100px;
 }
 #pagina3 .menu-container{
-    background-color: aquamarine;
+    background: linear-gradient(rgb(0, 208, 255), rgb(255, 255, 255));
+   
 }
 #pagina3 .option{
     background-color: white;
