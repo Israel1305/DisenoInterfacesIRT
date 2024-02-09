@@ -1,11 +1,16 @@
 /* styles.css */
 :root {
     color-scheme: light dark;
-    --background-color-light: #e8e8e8;  /* Define el color de fondo en el modo claro */
-    --background-color-dark: #212121;  /* Define el color de fondo en el modo oscuro */
-    --text-color-light: #e8e8e8;       /* Define el color del texto en el modo claro */
-    --text-color-dark: #212121;        /* Define el color del texto en el modo oscuro */
+    --background-color-light: #e8e8e8;
+    /* Define el color de fondo en el modo claro */
+    --background-color-dark: #212121;
+    /* Define el color de fondo en el modo oscuro */
+    --text-color-light: #e8e8e8;
+    /* Define el color del texto en el modo claro */
+    --text-color-dark: #212121;
+    /* Define el color del texto en el modo oscuro */
 }
+
 body {
     font-family: 'Arial', sans-serif;
     display: flex;
@@ -132,8 +137,56 @@ body {
     transform: translateX(30px);
 }
 
-/*****************/
+/***********************************************************/
 
+/****************** Titulo *****************************/
+
+.button-title {
+    margin: 0;
+    height: auto;
+    background: transparent;
+    padding: 0;
+    border: none;
+    cursor: pointer;
+}
+
+.button-title {
+    --border-right: 6px;
+    --text-stroke-color: rgb(0, 140, 255);
+    --animation-color: rgb(0, 140, 255);
+    --fs-size: 2em;
+    letter-spacing: 3px;
+    text-decoration: none;
+    font-size: var(--fs-size);
+    font-family: "Arial";
+    position: absolute;
+    top: 0;
+    margin-top: 6%;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+
+.hover-text {
+    position: absolute;
+    box-sizing: border-box;
+    content: attr(data-text);
+    color: var(--animation-color);
+    width: 0%;
+    inset: 0;
+    border-right: var(--border-right) solid var(--animation-color);
+    overflow: hidden;
+    transition: 0.5s;
+    -webkit-text-stroke: 1px var(--animation-color);
+}
+
+/* hover */
+.button-title:hover .hover-text {
+    width: 100%;
+    filter: drop-shadow(0 0 23px var(--animation-color))
+}
+
+/***********************************************************/
 /******************* Fondo por defecto *********************/
 .container {
     display: flex;
@@ -143,11 +196,12 @@ body {
     height: 100%;
     --color: #E1E1E1;
     background-color: #F3F3F3;
-    background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent),
-        linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%,transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%,transparent);
+    background-image: linear-gradient(0deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent),
+        linear-gradient(90deg, transparent 24%, var(--color) 25%, var(--color) 26%, transparent 27%, transparent 74%, var(--color) 75%, var(--color) 76%, transparent 77%, transparent);
     background-size: 55px 55px;
-  }
-/****************************************************/
+}
+
+/***********************************************************/
 
 /******************* Pagina (1) **************************/
 .race-container {
@@ -184,7 +238,7 @@ body {
     background-color: #99ebfd;
     background-size: cover;
     width: 1000px;
- 
+
 }
 
 
@@ -240,28 +294,34 @@ body {
 
 /********************** Ocultar paginas ****************************/
 
-#pagina2, #pagina3, #pagina4{
+.button-title,
+#pagina2,
+#pagina3,
+#pagina4 {
     display: none;
 }
 
 /***********************************************************/
 
 /*************** Configuracion menus ***********************/
-.menu-container, .option{
+.menu-container,
+.option {
     max-width: 500px;
     margin: 20px auto;
     padding: 20px;
     border: 1px solid #ccc;
     border-radius: 8px;
-    background: rgba(255,255,255,.05);
+    background: rgba(255, 255, 255, .05);
     backdrop-filter: blur(10px);
     box-sizing: border-box;
-    
+
 }
-.menu-container{
-    box-shadow: 0px 39px 88px 4px rgba(0,0,0,0.75);
+
+.menu-container {
+    box-shadow: 0px 39px 88px 4px rgba(0, 0, 0, 0.75);
 }
-.option{
+
+.option {
     color: black;
     text-align: center;
     cursor: pointer;
@@ -273,6 +333,7 @@ body {
     background-color: var(--background-color-dark);
     color: var(--text-color-light);
 }
+
 /** fondo pagina  darkMode**/
 .dark-mode .container {
     display: flex;
@@ -285,12 +346,39 @@ body {
     background-size: 30px 30px;
     background-position: -5px -5px
 }
+
 /****************************/
+/* Titulo darkMode */
+.dark-mode .button-tittle {
+    --border-right: 6px;
+    --text-stroke-color: #333;
+    --animation-color: #d6d6d6;
+    --fs-size: 2em;
+    letter-spacing: 3px;
+    text-decoration: none;
+    font-size: var(--fs-size);
+    font-family: "Arial";
+    position: absolute;
+    top: 0;
+    margin-top: 6%;
+    text-transform: uppercase;
+    color: transparent;
+    -webkit-text-stroke: 1px var(--text-stroke-color);
+}
+
+/** Barra y pista darkMode **/
+
+.dark-mode .runner,
+.dark-mode .vall-progress,
+.dark-mode .race-track {
+    filter: brightness(0.7); /* ajustar  según lo oscuro */
+}
 
 /* estilo boton 'START' */
-.dark-mode .start-button{
+.dark-mode .start-button {
     color: white;
 }
+
 .dark-mode .start-button {
     background: #333;
     box-shadow: 0 0 25px #d6d6d6;
@@ -306,12 +394,13 @@ body {
 /* estilo contenedor personajes */
 
 .dark-mode .option,
-.dark-mode span{
+.dark-mode span {
     color: white;
 
 }
-.dark-mode #pagina3 .option{
-    background-color: rgba(255,255,255,.05);
+
+.dark-mode #pagina3 .option {
+    background-color: rgba(255, 255, 255, .05);
 }
 
 /***********************************************************/
@@ -320,7 +409,7 @@ body {
 .slider {
     display: flex;
     overflow: hidden;
-    transition: transform 0.5s ease-in-out; 
+    transition: transform 0.5s ease-in-out;
 }
 
 .option {
@@ -328,21 +417,24 @@ body {
     width: 300px;
 }
 
-.prev-btn,.next-btn {
+.prev-btn,
+.next-btn {
     display: inline-block;
     cursor: pointer;
     font-size: 24px;
     margin: 0 10px;
     color: rgb(181, 16, 16);
 }
-.prev-btn{
+
+.prev-btn {
     margin-right: 250px;
 }
-.option img{
+
+.option img {
     height: 100px;
 }
 
-#pagina3 .option{
+#pagina3 .option {
     background-color: white;
 }
 

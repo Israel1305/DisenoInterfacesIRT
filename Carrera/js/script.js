@@ -24,31 +24,6 @@ function simulateRace() {
 
 simulateRace();
 
-function typingAnimation() {
-    let timings = {
-        easing: 'steps(7, end)',
-        delay: 2000,
-        duration: 2000,
-        fill: 'forwards'
-    }
-    let cursorTimings = {
-        duration: 700,
-        iterations: Infinity,
-        easing: 'cubic-bezier(0,.26,.44,.93)'
-    }
-    document.querySelector(".text_cursor").animate([
-        { opacity: 0 },
-        { opacity: 0, offset: 0.7 },
-        { opacity: 1 }
-    ], cursorTimings);
-
-    document.querySelector(".text_cursor").animate([
-        { left: '0%' },
-        { left: '100%' }
-    ], timings);
-}
-
-typingAnimation();
 
 /** Modo oscuro **/
 // Función para cambiar entre el modo claro y oscuro
@@ -69,11 +44,12 @@ function toggleDarkMode() {
 const darkModeToggle = document.getElementById('darkModeToggle');
 darkModeToggle.addEventListener('click', toggleDarkMode);
 /***************** */
-
 /** Transicion pagina **/
 function transicion(pagina) {
-    $('.pagina').hide(); // Oculta todas las páginas
-    $('#' + pagina).fadeIn(); // Muestra la página especificada
+    $('.pagina').hide();
+    $('.button-title').hide(); // Oculta todas las páginas
+    $('#' + pagina).fadeIn();
+    $('.button-title').fadeIn(); // Muestra la página especificada
 }
 /********************* */
 
