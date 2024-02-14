@@ -101,6 +101,7 @@ function selectCharacter() {
     const characters = document.querySelectorAll('.slider .option img');
     const selectedCharacterUrl = characters[currentSlide].src;
     const notificacion = document.querySelector(".tooltip");
+    const start_button = document.getElementById('option-start');
 
     // Mostrar la imagen del personaje en la etiqueta <img> con el ID 'personaje-selected'
     const personajeImg = document.getElementById('personaje-selected');
@@ -111,6 +112,7 @@ function selectCharacter() {
 
     if (selectCharacter) {
         notificacion.style.display = "none";
+        start_button.style.display= "block";
     }
 }
 
@@ -121,7 +123,7 @@ const personajeImg = document.querySelector('#personaje img');
 const gameContainer = document.querySelector('.game-container');
 
 // Establecer la posición inicial del personaje
-let personajeTop = 90;
+let personajeTop = 120;
 
 // Establecer la velocidad y la gravedad del salto
 const jumpSpeed = 6;
@@ -139,6 +141,15 @@ document.addEventListener('keydown', function (event) {
         }
     }
 });
+// Maneja eventos en el movil
+const gameContainer1 = document.querySelector('.game-container');
+
+gameContainer1.addEventListener('touchstart', function () {
+    if (!isJumping) {
+        jump();
+    }
+});
+
 // Función para hacer que el personaje salte
 function jump() {
     isJumping = true;
@@ -160,13 +171,13 @@ function jump() {
 // Función para hacer que el personaje caiga después del salto
 function fall() {
     const fallAnimation = setInterval(function () {
-        if (personajeTop < 90) {
+        if (personajeTop < 120) {
             // Actualizar la posición del personaje durante la caída
             personajeTop += jumpSpeed;
             personajeImg.style.top = personajeTop + 'px';
         } else {
             // Restaurar la posición del personaje al suelo
-            personajeTop = 90;
+            personajeTop = 120;
             personajeImg.style.top = personajeTop + 'px';
             isJumping = false;
             clearInterval(fallAnimation);
