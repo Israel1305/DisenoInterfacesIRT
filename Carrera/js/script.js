@@ -10,7 +10,7 @@ function simulateRace() {
     var interval = setInterval(function () {
         if (width >= 100) {
             clearInterval(interval);
-            raceTrack.style.opacity = "0"; // Agregado el efecto de desvanecimiento
+            raceTrack.style.opacity = "0"; 
             setTimeout(function () {
                 startButton.style.display = "block";
             }, 500);
@@ -22,8 +22,9 @@ function simulateRace() {
     }, 100);
     var bloque = document.getElementById("bloque");
     bloque.style.display = "none";
+console.log('Simulating Race...');
 
-    // Luego, cuando desees mostrar el bloque (por ejemplo, después de un tiempo)
+    // mostrar el bloque cada 3s
     setTimeout(function () {
         bloque.style.display = "block";
     }, 3000);
@@ -101,13 +102,11 @@ function selectCharacter() {
     const characters = document.querySelectorAll('.slider .option img');
     const selectedCharacterUrl = characters[currentSlide].src;
 
-    // Mostrar la imagen del personaje en el div #personaje
-    const personajeDiv = document.getElementById('personaje');
-    personajeDiv.style.backgroundImage = `url('${selectedCharacterUrl}')`;
+    // Mostrar la imagen del personaje en la etiqueta <img> con el ID 'personaje-selected'
+    const personajeImg = document.getElementById('personaje-selected');
+    personajeImg.src = selectedCharacterUrl;
 
-    // Puedes almacenar la URL del personaje seleccionado en una variable global o en localStorage para usarla en el juego
-    // Ejemplo de almacenamiento en localStorage:
     localStorage.setItem('selectedCharacter', selectedCharacterUrl);
     console.log('selectedCharacter', selectedCharacterUrl);
-
 }
+
