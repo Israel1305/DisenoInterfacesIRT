@@ -121,7 +121,7 @@ const personajeImg = document.querySelector('#personaje img');
 const gameContainer = document.querySelector('.game-container');
 
 // Establecer la posición inicial del personaje
-let personajeTop = 120;
+let personajeTop = 90;
 
 // Establecer la velocidad y la gravedad del salto
 const jumpSpeed = 6;
@@ -160,13 +160,13 @@ function jump() {
 // Función para hacer que el personaje caiga después del salto
 function fall() {
     const fallAnimation = setInterval(function () {
-        if (personajeTop < 120) {
+        if (personajeTop < 90) {
             // Actualizar la posición del personaje durante la caída
             personajeTop += jumpSpeed;
             personajeImg.style.top = personajeTop + 'px';
         } else {
             // Restaurar la posición del personaje al suelo
-            personajeTop = 120;
+            personajeTop = 90;
             personajeImg.style.top = personajeTop + 'px';
             isJumping = false;
             clearInterval(fallAnimation);
