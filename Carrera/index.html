@@ -32,7 +32,7 @@
         </label>
 
         <!-- Titulo Juego -->
-        <button class="button-title" data-text="Awesome">
+        <button class="button-title" data-text="Awesome" onclick="transicion('pagina2')">
             <span class="actual-text">&nbsp;Run!&nbsp;</span>
             <span aria-hidden="true" class="hover-text">&nbsp;Run!&nbsp;</span>
         </button>
@@ -52,7 +52,7 @@
 
         <div id="pagina2" class="pagina">
             <div class="menu-container">
-                <div class="option">INICIAR</div>
+                <div class="option" onclick="transicion('pagina5')">INICIAR</div>
                 <div class="option" onclick="transicion('pagina3')">PERSONAJES</div>
                 <div class="option" onclick="transicion('pagina4')">COMO SE JUEGA</div>
                 <div class="option" onclick="transicion('pagina1')">VOLVER</div>
@@ -81,9 +81,14 @@
                         <div class="p-name">Sonic</div>
                     </div>
                 </div>
-                <div class="prev-btn" onclick="changeSlide(-1)">❮</div>
-                <div class="next-btn" onclick="changeSlide(1)">❯</div>
+                <div class="selector">
+                    <div class="prev-btn" onclick="changeSlide(-1)">❮</div>
+                    <div class="option-btn" onclick="selectCharacter();transicion('pagina2')">Seleccionar</div>
+                    <div class="next-btn" onclick="changeSlide(1)">❯</div>
+                </div>
                 <div class="option" onclick="transicion('pagina2')">VOLVER</div>
+
+
             </div>
         </div>
 
@@ -93,7 +98,8 @@
             <div class="menu-container">
                 <span>
                     <h2>Cómo se juega</h2>
-                    Es una recreacion del famoso juego 'Chrome Dino Run', únicamente algo personalizado.
+                    <hr>
+                    <p> Es una recreacion del famoso juego 'Chrome Dino Run', únicamente algo personalizado.</p>
 
                     <p>∞ Barra espaciadora: salta.</p>
                 </span>
@@ -101,6 +107,21 @@
             </div>
         </div>
 
+        <!-- Página 'Iniciar - juego' (5) -->
+
+        <div id="pagina5" class="pagina">
+            <!-- Tenemos el video de fondo -->
+            <div class="game-container">
+                <!-- Tenedremos el personaje -->
+                <div id="personaje"></div>
+                <!-- Tendremos el bloque que habra que saltar -->
+                <div id="bloque">
+                    <img src="./media/garbage-unscreen.gif" alt="">
+                </div>
+            </div>
+            <div class="option" onclick="transicion('pagina2')">VOLVER</div>
+
+        </div>
 
         <script src="https://code.jquery.com/jquery-3.6.4.min.js" defer></script>
         <script src="./js/script.js" defer></script>

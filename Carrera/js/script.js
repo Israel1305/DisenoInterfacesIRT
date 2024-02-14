@@ -20,6 +20,13 @@ function simulateRace() {
             vallProgress.style.width = width + "%";
         }
     }, 100);
+    var bloque = document.getElementById("bloque");
+    bloque.style.display = "none";
+
+    // Luego, cuando desees mostrar el bloque (por ejemplo, después de un tiempo)
+    setTimeout(function () {
+        bloque.style.display = "block";
+    }, 3000);
 }
 
 simulateRace();
@@ -89,3 +96,18 @@ function showSlide(n) {
 showSlide(currentSlide);
 
 /******************** */
+function selectCharacter() {
+    // Obtener la URL de la imagen del personaje seleccionado
+    const characters = document.querySelectorAll('.slider .option img');
+    const selectedCharacterUrl = characters[currentSlide].src;
+
+    // Mostrar la imagen del personaje en el div #personaje
+    const personajeDiv = document.getElementById('personaje');
+    personajeDiv.style.backgroundImage = `url('${selectedCharacterUrl}')`;
+
+    // Puedes almacenar la URL del personaje seleccionado en una variable global o en localStorage para usarla en el juego
+    // Ejemplo de almacenamiento en localStorage:
+    localStorage.setItem('selectedCharacter', selectedCharacterUrl);
+    console.log('selectedCharacter', selectedCharacterUrl);
+
+}

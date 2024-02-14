@@ -297,14 +297,18 @@ body {
 .button-title,
 #pagina2,
 #pagina3,
-#pagina4 {
+#pagina4,
+#pagina5 {
     display: none;
 }
 
 /***********************************************************/
+/*********************  Pagina (2)   ****************************/
+
+/***********************************************************/
 
 /*************** Configuracion menus ***********************/
-.menu-container,
+.menu-container, .game-container,
 .option {
     max-width: 500px;
     margin: 20px auto;
@@ -317,7 +321,7 @@ body {
 
 }
 
-.menu-container {
+.menu-container, .game-container {
     box-shadow: 0px 39px 88px 4px rgba(0, 0, 0, 0.75);
 }
 
@@ -326,7 +330,36 @@ body {
     text-align: center;
     cursor: pointer;
 }
+/***********************************************************/
 
+/************  Pagina (4)  *************************************/
+.menu-container span{
+    color: black;
+}
+/***********************************************************/
+/************  Pagina (5)  **********************************/
+.game-container{
+    background: url('../media/background-game.gif')no-repeat center center;
+    background-size: cover;
+    width: 100vw;
+    height: 300px;
+    overflow: hidden;
+}
+#bloque img{
+    position: relative;
+    left: 460px;
+    top: 145px;
+    height: 100px;
+    animation: moveLeft 3s linear infinite;
+}
+@keyframes moveLeft {
+    0% {
+        transform: translateX(100%); 
+    }
+    100% {
+        transform: translateX(-600%); 
+    }
+}
 /***********************************************************/
 /******************* Moodo Oscuro ***********************/
 .dark-mode {
@@ -419,15 +452,25 @@ body {
 
 .prev-btn,
 .next-btn {
-    display: inline-block;
     cursor: pointer;
     font-size: 24px;
-    margin: 0 10px;
+    margin: 0;
     color: rgb(181, 16, 16);
+    width: 3%;
+}
+.option-btn{
+    cursor: pointer;
+    font-size: 23px;
+    color: #333;
+    grid-column: 2;
 }
 
-.prev-btn {
-    margin-right: 250px;
+.selector{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    width: 100%;
 }
 
 .option img {
