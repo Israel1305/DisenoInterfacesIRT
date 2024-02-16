@@ -6,6 +6,7 @@ function simulateRace() {
     var runner = document.getElementById("runner");
     var startButton = document.getElementById("startButton");
 
+    // Barra de carga
     var width = 0;
     var interval = setInterval(function () {
         if (width >= 100) {
@@ -20,6 +21,8 @@ function simulateRace() {
             vallProgress.style.width = width + "%";
         }
     }, 100);
+    ///////////////////////////////
+
     var bloque = document.getElementById("bloque");
     bloque.style.display = "none";
     console.log('Simulating Race...');
@@ -121,13 +124,8 @@ function selectCharacter() {
 // Obtener el elemento del personaje y el contenedor del juego
 const personajeImg = document.querySelector('#personaje img');
 const gameContainer = document.querySelector('.game-container');
-
-// Establecer la posición inicial del personaje
-let personajeTop = 120;
-
-// Establecer la velocidad y la gravedad del salto
-const jumpSpeed = 6;
-const gravity = 0.3;
+var block = document.querySelector('#bloque img')
+var counter=0;
 
 // Variable para verificar si el personaje está en el aire
 let isJumping = false;
@@ -151,37 +149,27 @@ gameContainer1.addEventListener('touchstart', function () {
 });
 
 // Función para hacer que el personaje salte
-function jump() {
-    isJumping = true;
-    let jumpHeight = 0;
-
-    const jumpAnimation = setInterval(function () {
-        if (jumpHeight >= 90) {
-            clearInterval(jumpAnimation);
-            fall();
-        } else {
-            // Actualizar la posición del personaje durante el salto
-            personajeTop -= jumpSpeed;
-            personajeImg.style.top = personajeTop + 'px';
-            jumpHeight += jumpSpeed;
-        }
-    }, 20);
+function jump(){
+    if(personajeImg.classList == "animate"){return}
+    personajeImg.classList.add("animate");
+    setTimeout(function(){
+        personajeImg.classList.remove("animate");
+    },300);
 }
 
-// Función para hacer que el personaje caiga después del salto
-function fall() {
-    const fallAnimation = setInterval(function () {
-        if (personajeTop < 120) {
-            // Actualizar la posición del personaje durante la caída
-            personajeTop += jumpSpeed;
-            personajeImg.style.top = personajeTop + 'px';
-        } else {
-            // Restaurar la posición del personaje al suelo
-            personajeTop = 120;
-            personajeImg.style.top = personajeTop + 'px';
-            isJumping = false;
-            clearInterval(fallAnimation);
-        }
-    }, 20);
-}
+var checkDead = setInterval(function() {
+    let characterTop = parseInt(window.getComputedStyle(personajeImg).getPropertyValue("top"));
+    let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
+    if (blockLeft < 80 && blockLeft > -80 && characterTop >= 90 && characterTop <= 150) {
+        // Colisión detectada
+        block.style.animation = "none";
+        alert("Game Over. Score: " + Math.floor(counter / 100));
+        counter = 0;
+        block.style.animation = "block 1s infinite linear";
+    }
+    else{
+        counter++;
+        document.getElementById("scoreSpan").innerHTML = Math.floor(counter/100);
+    }
+}, 10);
 /******************************************* */

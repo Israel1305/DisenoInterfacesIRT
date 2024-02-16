@@ -298,7 +298,8 @@ body {
 #pagina2,
 #pagina3,
 #pagina4,
-#pagina5, #option-start {
+#pagina5,
+#option-start {
     display: none;
 }
 
@@ -308,7 +309,8 @@ body {
 /***********************************************************/
 
 /*************** Configuracion menus ***********************/
-.menu-container, .game-container,
+.menu-container,
+.game-container,
 .option {
     max-width: 500px;
     margin: 20px auto;
@@ -321,7 +323,8 @@ body {
 
 }
 
-.menu-container, .game-container {
+.menu-container,
+.game-container {
     box-shadow: 0px 39px 88px 4px rgba(0, 0, 0, 0.75);
 }
 
@@ -330,50 +333,90 @@ body {
     text-align: center;
     cursor: pointer;
 }
+
 /***********************************************************/
 
 /************  Pagina (4)  *************************************/
-.menu-container span{
+.menu-container span {
     color: black;
 }
+
 /***********************************************************/
 /************  Pagina (5)  **********************************/
-.game-container{
+.game-container {
     background: url('../media/background-game.gif')no-repeat center center;
     background-size: cover;
     width: 100vw;
     height: 300px;
     overflow: hidden;
-    scale: 1.2; /* para modificar el tamaño del juego -afecta el posicionamiento del personaje... */
+    scale: 1.2;
+    /* para modificar el tamaño del juego -afecta el posicionamiento del personaje... */
 }
-#bloque img{
+
+#bloque img {
     position: relative;
     left: 460px;
     top: 40px;
     height: 80px;
+    width: 80px;
     animation: moveLeft 3s linear infinite;
     filter: brightness(0.8);
-    z-index: 1;
 }
+
+/** movimiento  bloque **/
+
 @keyframes moveLeft {
     0% {
-        transform: translateX(100%); 
+        transform: translateX(100%);
     }
+
     100% {
-        transform: translateX(-700%); 
+        transform: translateX(-700%);
     }
 }
-#personaje img{
+.score{
+    position: relative;
+    bottom: 217px;
+    right: 14px;
+    width: 85px;
+    border-radius: 5px;
+    backdrop-filter: blur(10px);
+}
+#personaje img {
     position: relative;
     top: 120px;
     height: 100px;
+    width: 65 px;
     filter: brightness(0.9);
-    z-index: 2;
 }
-#opt-game{
+
+.animate {
+    animation: jump 0.3s linear;
+}
+
+@keyframes jump {
+    0% {
+        top: 120px;
+    }
+
+    30% {
+        top: 30px;
+    }
+
+    70% {
+        top: 30px;
+    }
+
+    100% {
+        top: 120px;
+    }
+}
+
+#opt-game {
     position: relative;
     top: 20px;
 }
+
 /***********************************************************/
 /******************* Moodo Oscuro ***********************/
 .dark-mode {
@@ -418,7 +461,8 @@ body {
 .dark-mode .runner,
 .dark-mode .vall-progress,
 .dark-mode .race-track {
-    filter: brightness(0.8); /* ajustar  según lo oscuro */
+    filter: brightness(0.8);
+    /* ajustar  según lo oscuro */
 }
 
 /* estilo boton 'START' */
@@ -449,9 +493,11 @@ body {
 .dark-mode #pagina3 .option {
     background-color: rgba(255, 255, 255, .05);
 }
-.dark-mode .option-btn{
+
+.dark-mode .option-btn {
     color: white;
 }
+
 /***********************************************************/
 
 /*************** Slider Personajes ********************/
@@ -474,14 +520,15 @@ body {
     color: rgb(181, 16, 16);
     width: 3%;
 }
-.option-btn{
+
+.option-btn {
     cursor: pointer;
     font-size: 23px;
     color: #333;
     grid-column: 2;
 }
 
-.selector{
+.selector {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -496,6 +543,7 @@ body {
 #pagina3 .option {
     background-color: white;
 }
+
 /******** TOOLTIP ****************/
 .tooltip {
     position: relative;
@@ -506,14 +554,14 @@ body {
     font-family: "Arial", sans-serif;
     z-index: 1;
     display: block;
-  }
-  
-  .tooltip:hover .tooltiptext {
+}
+
+.tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
-  }
-  
-  .tooltiptext {
+}
+
+.tooltiptext {
     visibility: hidden;
     width: 200px;
     background-color: #333;
@@ -528,9 +576,9 @@ body {
     margin-left: -100px;
     opacity: 0;
     transition: opacity 0.3s;
-  }
-  
-  .tooltiptext::after {
+}
+
+.tooltiptext::after {
     content: "";
     position: absolute;
     top: -10px;
@@ -539,9 +587,9 @@ body {
     border-width: 10px;
     border-style: solid;
     border-color: transparent transparent #333 transparent;
-  }
-  
-  .tooltip .icon {
+}
+
+.tooltip .icon {
     display: inline-block;
     width: 20px;
     height: 20px;
@@ -550,6 +598,6 @@ body {
     border-radius: 50%;
     text-align: center;
     line-height: 20px;
-  }
-  
+}
+
 /***********************************************************/
