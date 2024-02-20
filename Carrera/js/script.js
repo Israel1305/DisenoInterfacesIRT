@@ -119,13 +119,23 @@ function selectCharacter() {
     }
 }
 
+
+
+
 //** Movimiento del personaje */
+
+
+
+
+
 
 // Obtener el elemento del personaje y el contenedor del juego
 const personajeImg = document.querySelector('#personaje img');
 const gameContainer = document.querySelector('.game-container');
 var block = document.querySelector('#hit-box')
 var score = 0;
+//Array para almacenar puntuaciones
+let scores = [];
 
 // Variable para verificar si el personaje está en el aire
 let isJumping = false;
@@ -148,7 +158,7 @@ document.addEventListener('keydown', function (event) {
     }
 });
 // Maneja eventos en el movil
-const gameContainer1 = document.querySelector('.game-container');
+const gameContainer1 = document.querySelector('html');
 
 gameContainer1.addEventListener('touchstart', function () {
     if (!isJumping) {
@@ -211,8 +221,8 @@ function restartGame() {
     // Reanudar las animaciones pausadas 
     const imagenes = document.querySelectorAll('img');
     const hideScore = document.querySelector('.score');
-     // Iterar sobre cada imagen y detener la animación
-     imagenes.forEach((imagen) => {
+    // Iterar sobre cada imagen y detener la animación
+    imagenes.forEach((imagen) => {
         imagen.style.opacity = 1;
     });
     hideScore.style.display = 'block';
@@ -230,8 +240,42 @@ function endGame() {
     });
     hideScore.style.display = 'none';
 
+    // Añadir el puntaje al array de puntuaciones solo si hay puntaje
+    if (score > 0) {
+        scores.push(score);
+    }
+
+    // Ordenar las puntuaciones de mayor a menor
+    scores.sort((a, b) => b - a);
+
+    // Mostrar las puntuaciones en la lista
+    const topScoreList = document.getElementById('topScore');
+    topScoreList.innerHTML = ''; // Limpiar la lista
+
+    if (scores.length === 0) {
+        // Si no hay puntuaciones, mostrar un mensaje predeterminado
+        const noScoreItem = document.createElement('li');
+        noScoreItem.textContent = 'Aún no hay puntuación';
+        topScoreList.appendChild(noScoreItem);
+    } else {
+        // Mostrar hasta las 10 mejores puntuaciones
+        const numScoresToShow = Math.min(scores.length, 10);
+
+        for (let index = 0; index < numScoresToShow; index++) {
+            const listItem = document.createElement('li');
+            listItem.textContent = `Score ${index + 1}: ${scores[index]}`;
+            topScoreList.appendChild(listItem);
+        }
+    }
+
     // Mostrar el puntaje final en el elemento span#scoreSpanFinal
     scoreFinal.textContent = `${score}`;
+
+    // Limpiar el puntaje para la próxima partida
+    score = 0;
+
+
+
 
     // Ocultar la sección actual de juego y mostrar la sección de la otra página
     const otraPaginaSection = document.querySelector('#pagina7');
@@ -242,4 +286,5 @@ function endGame() {
 }
 
 setInterval(checkCollision, 100); // Verifica la colisión cada 100 milisegundos 
+
 /******************************************* */

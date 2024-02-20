@@ -21,6 +21,7 @@ body {
     background-color: var(--background-color-light);
     color: var(--text-color-light);
     transition: background-color 0.5s, color 0.5s;
+    overflow: hidden;
 }
 
 /** Switch tema **/
@@ -447,6 +448,16 @@ body {
     position: relative;
     top: 20px;
 }
+@media only screen and (max-width: 767px) {
+    .game-container{
+        scale: 1;
+    }
+
+    #hit-box{
+        top: 69px;
+    }
+  }
+  
 
 /***********************************************************/
 
@@ -511,7 +522,10 @@ button {
     backdrop-filter: blur(10px);
     border: none;
 }
-
+#topScore{
+color: #212121;
+list-style: none;
+}
 /***********************************************************/
 /********************* Pagina 7 **************************/
 div#pagina7{

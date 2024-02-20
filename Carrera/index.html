@@ -57,7 +57,7 @@
                     <div class="tooltiptext">Debes seleccionar un personaje</div>
                 </div>
 
-                <div class="option" id="option-start" onclick="transicion('pagina5')">INICIAR</div>
+                <div class="option" id="option-start" onclick="restartGame();transicion('pagina5')">INICIAR</div>
                 <div class="option" onclick="transicion('pagina3')">PERSONAJES</div>
                 <div class="option" onclick="transicion('pagina6')">MARCADOR</div>
                 <div class="option" onclick="transicion('pagina4')">COMO SE JUEGA</div>
@@ -148,9 +148,11 @@
                 <a onclick="transicion('pagina2')"><span>Top Scorer</span></a>
             </button>
             <div class="menu-container">
-
+                <ul id="topScore">
+                    
+                </ul>
             </div>
-            <div class="option"  onclick="transicion('pagina2')">VOLVER</div>
+            <div class="option" onclick="transicion('pagina2')">VOLVER</div>
 
         </div>
 
@@ -161,8 +163,8 @@
                 <span> Has perdido! Tu puntuacion: <span id="scoreSpanFinal"></span>
                 </span>
             </div>
-            <div class="option"  onclick="restartGame();transicion('pagina5')">JUGAR DE NUEVO</div>
-            <div class="option"  onclick="transicion('pagina6')">SALIR</div>
+            <div class="option" onclick="restartGame();transicion('pagina5')">JUGAR DE NUEVO</div>
+            <div class="option" onclick="transicion('pagina6')">SALIR</div>
 
         </div>
 
