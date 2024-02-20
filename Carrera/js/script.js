@@ -124,7 +124,7 @@ function selectCharacter() {
 // Obtener el elemento del personaje y el contenedor del juego
 const personajeImg = document.querySelector('#personaje img');
 const gameContainer = document.querySelector('.game-container');
-var block = document.querySelector('#bloque img')
+var block = document.querySelector('#hit-box')
 var counter=0;
 
 // Variable para verificar si el personaje está en el aire
@@ -154,22 +154,50 @@ function jump(){
     personajeImg.classList.add("animate");
     setTimeout(function(){
         personajeImg.classList.remove("animate");
-    },300);
+    },500);
 }
 
-var checkDead = setInterval(function() {
-    let characterTop = parseInt(window.getComputedStyle(personajeImg).getPropertyValue("top"));
-    let blockLeft = parseInt(window.getComputedStyle(block).getPropertyValue("left"));
-    if (blockLeft < 80 && blockLeft > -80 && characterTop >= 90 && characterTop <= 150) {
-        // Colisión detectada
-        block.style.animation = "none";
-        alert("Game Over. Score: " + Math.floor(counter / 100));
-        counter = 0;
-        block.style.animation = "block 1s infinite linear";
+function checkCollision() {
+    const personajeRect = personajeImg.getBoundingClientRect();
+    const bloqueRect = block.getBoundingClientRect();
+
+    const personajeTop = personajeRect.top;
+    const personajeBottom = personajeRect.bottom;
+    const personajeLeft = personajeRect.left;
+    const personajeRight = personajeRect.right;
+
+    const bloqueTop = bloqueRect.top;
+    const bloqueBottom = bloqueRect.bottom;
+    const bloqueLeft = bloqueRect.left;
+    const bloqueRight = bloqueRect.right;
+
+    const allowPassingTime = 400; // tiempo que le permite para pasar
+
+    if (
+      personajeBottom > bloqueTop &&
+      personajeTop < bloqueBottom &&
+      personajeRight > bloqueLeft &&
+      personajeLeft < bloqueRight
+    ) // Si el personaje está en el aire, permitir que pase durante el tiempo permitido
+    if (isJumping) {
+        setTimeout(() => {
+            if (isJumping) {
+                // Si todavía está en el aire después del tiempo permitido, termina el juego
+                endGame();
+            }
+        }, allowPassingTime);
+    } else {
+        // Si no está en el aire, termina el juego inmediatamente
+        endGame();
     }
-    else{
-        counter++;
-        document.getElementById("scoreSpan").innerHTML = Math.floor(counter/100);
-    }
-}, 10);
+  }
+
+  function endGame() {
+    alert('¡Game Over!'); // Puedes personalizar este mensaje o agregar más lógica aquí.
+    // Puedes redirigir a la página de inicio o reiniciar el juego según tus necesidades.
+    // window.location.reload(); // Esto reiniciaría la página, ajusta según tus necesidades.
+  }
+
+  // Llama a la función checkCollision en algún punto del código, por ejemplo, dentro de tu bucle de animación o temporizador.
+  setInterval(checkCollision, 100); // Verifica la colisión cada 100 milisegundos 
 /******************************************* */

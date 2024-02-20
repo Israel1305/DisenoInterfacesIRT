@@ -348,33 +348,54 @@ body {
     background-size: cover;
     width: 100vw;
     height: 300px;
-    overflow: hidden;
+
     scale: 1.2;
     /* para modificar el tamaño del juego -afecta el posicionamiento del personaje... */
 }
 
 #bloque img {
     position: relative;
-    left: 460px;
-    top: 40px;
-    height: 80px;
-    width: 80px;
+    left: 400px;
+    top: 90px;
+    height: 40px;
+    width: 40px;
     animation: moveLeft 3s linear infinite;
     filter: brightness(0.8);
+}
+
+#hit-box {
+    position: relative;
+    left: 410px;
+    top: 71px;
+    height: 5px;
+    width: 3px;
+    background-color: none;
+    animation: moveLeft2 3s linear infinite;
 }
 
 /** movimiento  bloque **/
 
 @keyframes moveLeft {
     0% {
-        transform: translateX(100%);
+        left: 100%;
     }
 
     100% {
-        transform: translateX(-700%);
+        left: -10%;
     }
 }
-.score{
+
+@keyframes moveLeft2 {
+    0% {
+        left: 110%;
+    }
+
+    100% {
+        left: -10%;
+    }
+}
+
+.score {
     position: relative;
     bottom: 217px;
     right: 14px;
@@ -382,12 +403,14 @@ body {
     border-radius: 5px;
     backdrop-filter: blur(10px);
 }
+
 #personaje img {
     position: relative;
     top: 120px;
     height: 100px;
-    width: 65 px;
+    width: 50px;
     filter: brightness(0.9);
+
 }
 
 .animate {
