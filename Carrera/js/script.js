@@ -115,7 +115,7 @@ function selectCharacter() {
 
     if (selectCharacter) {
         notificacion.style.display = "none";
-        start_button.style.display= "block";
+        start_button.style.display = "block";
     }
 }
 
@@ -125,10 +125,18 @@ function selectCharacter() {
 const personajeImg = document.querySelector('#personaje img');
 const gameContainer = document.querySelector('.game-container');
 var block = document.querySelector('#hit-box')
-var counter=0;
+var score = 0;
 
 // Variable para verificar si el personaje está en el aire
 let isJumping = false;
+
+// Función para actualizar y mostrar la puntuación
+function updateScore() {
+    score += 10;
+    const scoreElement = document.querySelector('.score span');
+    scoreElement.textContent = score;
+}
+
 
 // Manejar eventos de teclado
 document.addEventListener('keydown', function (event) {
@@ -149,12 +157,14 @@ gameContainer1.addEventListener('touchstart', function () {
 });
 
 // Función para hacer que el personaje salte
-function jump(){
-    if(personajeImg.classList == "animate"){return}
+function jump() {
+    if (personajeImg.classList == "animate") { return }
     personajeImg.classList.add("animate");
-    setTimeout(function(){
+    // Actualizar y mostrar la puntuación cuando el personaje salta
+    updateScore();
+    setTimeout(function () {
         personajeImg.classList.remove("animate");
-    },500);
+    }, 500);
 }
 
 function checkCollision() {
@@ -174,43 +184,62 @@ function checkCollision() {
     const allowPassingTime = 400; // tiempo que le permite para pasar
 
     if (
-      personajeBottom > bloqueTop &&
-      personajeTop < bloqueBottom &&
-      personajeRight > bloqueLeft &&
-      personajeLeft < bloqueRight
+        personajeBottom > bloqueTop &&
+        personajeTop < bloqueBottom &&
+        personajeRight > bloqueLeft &&
+        personajeLeft < bloqueRight
     ) // Si el personaje está en el aire, permitir que pase durante el tiempo permitido
-    if (isJumping) {
-        setTimeout(() => {
-            if (isJumping) {
-                // Si todavía está en el aire después del tiempo permitido, termina el juego
-                endGame();
-            }
-        }, allowPassingTime);
-    } else {
-        // Si no está en el aire, termina el juego inmediatamente
-        endGame();
-    }
-  }
+        if (isJumping) {
+            setTimeout(() => {
+                if (isJumping) {
+                    // Si todavía está en el aire después del tiempo permitido, termina el juego
+                    endGame();
+                }
+            }, allowPassingTime);
+        } else {
+            // Si no está en el aire, termina el juego inmediatamente
+            endGame();
+        }
+}
+// Función para reiniciar el juego
+function restartGame() {
+    // Reiniciar el contador
+    score = 0;
+    const scoreElement = document.querySelector('.score span');
+    scoreElement.textContent = score;
 
-  function endGame() {
+    // Reanudar las animaciones pausadas 
+    const imagenes = document.querySelectorAll('img');
+    const hideScore = document.querySelector('.score');
+     // Iterar sobre cada imagen y detener la animación
+     imagenes.forEach((imagen) => {
+        imagen.style.opacity = 1;
+    });
+    hideScore.style.display = 'block';
+}
+function endGame() {
     // Obtener todas las imágenes en la página
     const imagenes = document.querySelectorAll('img');
     const hideScore = document.querySelector('.score');
+    const scoreFinal = document.getElementById('scoreSpanFinal');
 
 
     // Iterar sobre cada imagen y detener la animación
     imagenes.forEach((imagen) => {
         imagen.style.opacity = 0;
     });
-    hideScore.style.display= 'none';
-    // Ocultar la sección actual de juego y mostrar la sección de la otra página
+    hideScore.style.display = 'none';
 
+    // Mostrar el puntaje final en el elemento span#scoreSpanFinal
+    scoreFinal.textContent = `${score}`;
+
+    // Ocultar la sección actual de juego y mostrar la sección de la otra página
     const otraPaginaSection = document.querySelector('#pagina7');
     const btnGame = document.querySelector('#opt-game');
 
     btnGame.style.display = 'none';
     otraPaginaSection.style.display = 'block';
-  }
+}
 
-  setInterval(checkCollision, 100); // Verifica la colisión cada 100 milisegundos 
+setInterval(checkCollision, 100); // Verifica la colisión cada 100 milisegundos 
 /******************************************* */
