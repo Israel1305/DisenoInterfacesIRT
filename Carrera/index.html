@@ -59,6 +59,7 @@
 
                 <div class="option" id="option-start" onclick="transicion('pagina5')">INICIAR</div>
                 <div class="option" onclick="transicion('pagina3')">PERSONAJES</div>
+                <div class="option" onclick="transicion('pagina6')">MARCADOR</div>
                 <div class="option" onclick="transicion('pagina4')">COMO SE JUEGA</div>
                 <div class="option" onclick="transicion('pagina1')">VOLVER</div>
             </div>
@@ -68,7 +69,7 @@
 
         <div id="pagina3" class="pagina">
             <div class="menu-container">
-                <div class="slider">
+                <div class="slider" onclick="selectCharacter();transicion('pagina2')">
                     <div class="option" id="p1">
                         <img src="./media/characters/animated-man-running.gif" alt="p1">
                         <div class="p-name">Runner-Man</div>
@@ -139,6 +140,32 @@
             <div class="option" id="opt-game" onclick="transicion('pagina2')">VOLVER</div>
 
         </div>
+        <!-- Página 'Marcador' (6) -->
+
+        <div id="pagina6" class="pagina">
+            <!-- Top Scorer -->
+            <button>
+                <a onclick="transicion('pagina2')"><span>Top Scorer</span></a>
+            </button>
+            <div class="menu-container">
+
+            </div>
+            <div class="option"  onclick="transicion('pagina2')">VOLVER</div>
+
+        </div>
+
+        <!-- Página 'Pantalla - Alert' (7) -->
+
+        <div id="pagina7" class="pagina">
+            <div class="menu-container">
+                <span> Has perdido! Tu puntuacion: <span id="scoreSpanFinal"></span>
+                </span>
+            </div>
+            <div class="option"  onclick="transicion('pagina5')">JUGAR DE NUEVO</div>
+            <div class="option"  onclick="transicion('pagina6')">SALIR</div>
+
+        </div>
+
 
         <script src="https://code.jquery.com/jquery-3.6.4.min.js" defer></script>
         <script src="./js/script.js" defer></script>

@@ -299,6 +299,8 @@ body {
 #pagina3,
 #pagina4,
 #pagina5,
+#pagina6,
+#pagina7,
 #option-start {
     display: none;
 }
@@ -322,6 +324,7 @@ body {
     box-sizing: border-box;
 
 }
+
 
 .menu-container,
 .game-container {
@@ -348,7 +351,12 @@ body {
     background-size: cover;
     width: 100vw;
     height: 300px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 
+    z-index: 2;
     scale: 1.2;
     /* para modificar el tamaño del juego -afecta el posicionamiento del personaje... */
 }
@@ -397,7 +405,7 @@ body {
 
 .score {
     position: relative;
-    bottom: 217px;
+    bottom: 180px;
     right: 14px;
     width: 85px;
     border-radius: 5px;
@@ -440,6 +448,82 @@ body {
     top: 20px;
 }
 
+/***********************************************************/
+
+/******************* Pagina 6 ***********************/
+a {
+    position: relative;
+    display: inline-block;
+    padding: 15px 30px;
+    border: 2px solid rgb(0, 140, 255);
+    text-transform: uppercase;
+    color: rgb(0, 140, 255);
+    text-decoration: none;
+    backdrop-filter: blur(10px);
+    font-weight: 600;
+    font-size: 20px;
+}
+
+a::before {
+    content: '';
+    position: absolute;
+    top: 6px;
+    left: -2px;
+    width: calc(100% + 4px);
+    height: calc(100% - 12px);
+    background-color: white;
+    backdrop-filter: blur(10px);
+    transition: 0.3s ease-in-out;
+    transform: scaleY(1);
+}
+
+a:hover::before {
+    transform: scaleY(0);
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    left: 6px;
+    top: -2px;
+    height: calc(100% + 4px);
+    width: calc(100% - 12px);
+    background-color: white;
+    backdrop-filter: blur(10px);
+    transition: 0.3s ease-in-out;
+    transform: scaleX(1);
+    transition-delay: 0.5s;
+}
+
+a:hover::after {
+    transform: scaleX(0);
+}
+
+a span {
+    position: relative;
+    z-index: 3;
+}
+
+button {
+    background-color: none;
+    text-decoration: none;
+    background-color: white;
+    backdrop-filter: blur(10px);
+    border: none;
+}
+
+/***********************************************************/
+/********************* Pagina 7 **************************/
+div#pagina7{
+    position: relative;
+    top: 0;
+    right: 3%;
+    z-index: 100;
+    
+}
+div#pagina7 span, div#pagina7 .option{
+    color: white;
+}
 /***********************************************************/
 /******************* Moodo Oscuro ***********************/
 .dark-mode {
@@ -519,6 +603,23 @@ body {
 
 .dark-mode .option-btn {
     color: white;
+}
+
+.dark-mode a {
+    color: white;
+    border: 2px solid white;
+}
+
+.dark-mode a::before {
+    background-color: #212121;
+}
+
+.dark-mode a::after {
+    background-color: #212121;
+}
+
+.dark-mode button {
+    background-color: #212121;
 }
 
 /***********************************************************/

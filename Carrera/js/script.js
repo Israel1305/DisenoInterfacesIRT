@@ -193,11 +193,24 @@ function checkCollision() {
   }
 
   function endGame() {
-    alert('¡Game Over!'); // Puedes personalizar este mensaje o agregar más lógica aquí.
-    // Puedes redirigir a la página de inicio o reiniciar el juego según tus necesidades.
-    // window.location.reload(); // Esto reiniciaría la página, ajusta según tus necesidades.
+    // Obtener todas las imágenes en la página
+    const imagenes = document.querySelectorAll('img');
+    const hideScore = document.querySelector('.score');
+
+
+    // Iterar sobre cada imagen y detener la animación
+    imagenes.forEach((imagen) => {
+        imagen.style.opacity = 0;
+    });
+    hideScore.style.display= 'none';
+    // Ocultar la sección actual de juego y mostrar la sección de la otra página
+
+    const otraPaginaSection = document.querySelector('#pagina7');
+    const btnGame = document.querySelector('#opt-game');
+
+    btnGame.style.display = 'none';
+    otraPaginaSection.style.display = 'block';
   }
 
-  // Llama a la función checkCollision en algún punto del código, por ejemplo, dentro de tu bucle de animación o temporizador.
   setInterval(checkCollision, 100); // Verifica la colisión cada 100 milisegundos 
 /******************************************* */
