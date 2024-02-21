@@ -1,6 +1,7 @@
 // script.js
 
 function simulateRace() {
+    return new Promise((resolve)=>{
     var raceTrack = document.getElementById("raceTrack");
     var vallProgress = document.getElementById("vallProgress");
     var runner = document.getElementById("runner");
@@ -14,6 +15,7 @@ function simulateRace() {
             raceTrack.style.opacity = "0";
             setTimeout(function () {
                 startButton.style.display = "block";
+                resolve();
             }, 500);
         } else {
             width++;
@@ -21,6 +23,7 @@ function simulateRace() {
             vallProgress.style.width = width + "%";
         }
     }, 100);
+
     ///////////////////////////////
 
     var bloque = document.getElementById("bloque");
@@ -31,9 +34,12 @@ function simulateRace() {
     setTimeout(function () {
         bloque.style.display = "block";
     }, 3000);
+});
 }
 
-simulateRace();
+simulateRace().then(()=>{
+    console.log('Simulando carrera');
+});
 
 /** Modo oscuro **/
 // Función para cambiar entre el modo claro y oscuro
@@ -54,7 +60,11 @@ function toggleDarkMode() {
 const darkModeToggle = document.getElementById('darkModeToggle');
 darkModeToggle.addEventListener('click', toggleDarkMode);
 /***************** */
+
+
+
 /** Transicion pagina **/
+/** utilizamos funciones de la liberia JQuery */
 function transicion(pagina) {
     $('.pagina').hide();
     $('.button-title').hide(); // Oculta todas las páginas
